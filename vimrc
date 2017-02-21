@@ -1,6 +1,4 @@
 execute pathogen#infect()
-syntax on
-filetype plugin indent on
 
 set number
 set mouse=n
@@ -9,6 +7,9 @@ set nowrap
 set encoding=utf-8
 set guifont=/Users/ghankerson/Library/Fonts/Anonymice\ Powerline.ttf "make sure to escape the spaces in the name properly
 
+
+syntax on
+filetype plugin indent on
 
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2
