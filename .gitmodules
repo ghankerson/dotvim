@@ -79,3 +79,6 @@
 [submodule "bundle/vroom"]
 	path = bundle/vroom
 	url = git@github.com:skalnik/vim-vroom.git
+[submodule "bundle/rubocop"]
+	path = bundle/rubocop
+	url = git@github.com:ngmy/vim-rubocop.git
