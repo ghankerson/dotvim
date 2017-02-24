@@ -82,3 +82,6 @@
 [submodule "bundle/rubocop"]
 	path = bundle/rubocop
 	url = git@github.com:ngmy/vim-rubocop.git
+[submodule "bundle/slim"]
+	path = bundle/slim
+	url = https://github.com/slim-template/vim-slim
