@@ -29,8 +29,13 @@ nnoremap <LEADER>gc :Gcommit<CR>
 nnoremap <LEADER>gb :Gblame<CR>
 nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>tt :TagbarToggle<CR>
+nmap <leader>rr :RunReek<CR>
+nmap <leader>rc :RuboCop<CR>
+nmap <leader>rcf :RuboCop -a<CR>
 
+let g:jsx_ext_required = 0 " Allow JSX in normal JS files
 let g:syntastic_javascript_checkers=['eslint', 'standard']
+let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
 
 colorscheme jellybeans
 
@@ -41,4 +46,13 @@ endif
 
 if !exists('g:airline_symbols')
 	let g:airline_symbols = {}
+endif
+
+" yank to clipboard
+if has("clipboard")
+  set clipboard=unnamed " copy to the system clipboard
+
+	if has("unnamedplus") " X11 support
+	set clipboard+=unnamedplus
+	endif
 endif

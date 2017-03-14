@@ -91,3 +91,6 @@
 [submodule "bundle/reek"]
 	path = bundle/reek
 	url = git@github.com:rainerborene/vim-reek.git
+[submodule "bundle/vitality"]
+	path = bundle/vitality
+	url = git@github.com:sjl/vitality.vim.git
