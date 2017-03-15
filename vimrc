@@ -6,7 +6,8 @@ set ttymouse=xterm2
 set nowrap
 set encoding=utf-8
 set guifont=/Users/ghankerson/Library/Fonts/Anonymice\ Powerline.ttf "make sure to escape the spaces in the name properly
-
+set t_Co=256
+set termguicolors
 
 syntax on
 filetype plugin indent on
