@@ -94,3 +94,6 @@
 [submodule "bundle/vitality"]
 	path = bundle/vitality
 	url = git@github.com:sjl/vitality.vim.git
+[submodule "bundle/vdebug"]
+	path = bundle/vdebug
+	url = git@github.com:joonty/vdebug.git
