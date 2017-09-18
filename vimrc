@@ -17,7 +17,10 @@ autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 sw=2 expandtab smarttab
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab smarttab
 autocmd Filetype php setlocal ts=2 sts=2 sw=2
 autocmd vimenter * NERDTree
-
+autocmd FileType javascript setlocal formatprg=prettier\ --no-semi\ --stdin\ --parser\ flow\ --print-width\ 120\ --single-quote\ --trailing-comma\ es6
+autocmd FileType jsx setlocal formatprg=prettier\ --stdin\ --no-semi\ --parser\ flow\ --print-width\ 120\ --single-quote\ --trailing-comma\ es6
+" Use formatprg when available
+let g:neoformat_try_formatprg = 1
 
 let mapleader = ' '
 
@@ -33,10 +36,11 @@ nmap <leader>tt :TagbarToggle<CR>
 nmap <leader>rr :RunReek<CR>
 nmap <leader>rc :RuboCop<CR>
 nmap <leader>rcf :RuboCop -a<CR>
-
+nnoremap <LEADER>gp :silent %!prettier --stdin --single-quote --print-width=120 --no-semi<CR>
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
-let g:syntastic_javascript_checkers=['eslint', 'standard']
-let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
+" let g:syntastic_javascript_checkers=['eslint', 'standard']
+let g:syntastic_javascript_checkers=[]
+" let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
 
 colorscheme jellybeans
 
