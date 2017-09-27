@@ -16,9 +16,7 @@ autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 sw=2 expandtab smarttab
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab smarttab
 autocmd Filetype php setlocal ts=2 sts=2 sw=2
-autocmd vimenter * NERDTree
-autocmd FileType javascript setlocal formatprg=prettier\ --no-semi\ --stdin\ --parser\ flow\ --print-width\ 120\ --single-quote\ --trailing-comma\ es6
-autocmd FileType jsx setlocal formatprg=prettier\ --stdin\ --no-semi\ --parser\ flow\ --print-width\ 120\ --single-quote\ --trailing-comma\ es6
+
 " Use formatprg when available
 let g:neoformat_try_formatprg = 1
 
@@ -36,11 +34,32 @@ nmap <leader>tt :TagbarToggle<CR>
 nmap <leader>rr :RunReek<CR>
 nmap <leader>rc :RuboCop<CR>
 nmap <leader>rcf :RuboCop -a<CR>
-nnoremap <LEADER>gp :silent %!prettier --stdin --single-quote --print-width=120 --no-semi<CR>
+nnoremap <LEADER>gp :Prettier<CR>
+
+" Syntastic
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
-" let g:syntastic_javascript_checkers=['eslint', 'standard']
-let g:syntastic_javascript_checkers=[]
-" let g:syntastic_javascript_jsxhint_exec = 'jsx-jshint-wrapper'
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_javascript_eslint_exe = 'yarn lint --'
+
+" Prettier
+let g:prettier#config#print_width = 120
+let g:prettier#config#trailing_comma = 'none'
+let g:prettier#config#tab_width = 2
+let g:prettier#config#use_tabs = 'false'
+let g:prettier#config#parser = 'flow'
+let g:prettier#config#bracket_spacing = 'true'
+let g:prettier#config#single_quote = 'true'
+let g:prettier#config#semi = 'true'
+let g:prettier#quickfix_enabled = 0
+let g:prettier#autoformat = 0
+autocmd BufWritePre *.jsx,*.mjs Prettier
 
 colorscheme jellybeans
 
