@@ -15,7 +15,7 @@ filetype plugin indent on
 autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 sw=2 expandtab smarttab
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab smarttab
-autocmd Filetype php setlocal ts=2 sts=2 sw=2
+autocmd Filetype php setlocal ts=4 sts=4 sw=4
 
 " Use formatprg when available
 let g:neoformat_try_formatprg = 1
@@ -48,6 +48,10 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers=['eslint']
 let g:syntastic_javascript_eslint_exe = 'yarn lint --'
 
+" Ruby
+let g:syntastic_ruby_checkers=['rubocop']
+
+
 " Prettier
 let g:prettier#config#print_width = 120
 let g:prettier#config#trailing_comma = 'none'
@@ -61,9 +65,9 @@ let g:prettier#quickfix_enabled = 0
 let g:prettier#autoformat = 0
 autocmd BufWritePre *.jsx,*.mjs Prettier
 
-colorscheme jellybeans
+colorscheme PaperColor
 
-" Source the vimrc file afkjjjkkkter saving it
+" Source the vimrc file after saving it
 if has("autocmd")
 	autocmd bufwritepost .vimrc source $MYVIMRC
 endif
