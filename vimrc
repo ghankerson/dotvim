@@ -8,6 +8,8 @@ set encoding=utf-8
 set guifont=/Users/ghankerson/Library/Fonts/Anonymice\ Powerline.ttf "make sure to escape the spaces in the name properly
 set t_Co=256
 set termguicolors
+set foldmethod=syntax
+set foldlevelstart=1000
 
 syntax on
 filetype plugin indent on
@@ -16,6 +18,7 @@ autocmd Filetype html setlocal ts=2 sts=2 sw=2
 autocmd Filetype ruby setlocal ts=2 sts=2 sw=2 sw=2 expandtab smarttab
 autocmd Filetype javascript setlocal ts=2 sts=2 sw=2 expandtab smarttab
 autocmd Filetype php setlocal ts=4 sts=4 sw=4
+autocmd FileType slim setlocal ts=2 sts=2 sw=2 expandtab smarttab
 
 " Use formatprg when available
 let g:neoformat_try_formatprg = 1
@@ -29,6 +32,8 @@ nnoremap <LEADER>gr :Gread<CR>
 nnoremap <LEADER>gm :Gmove<CR>
 nnoremap <LEADER>gc :Gcommit<CR>
 nnoremap <LEADER>gb :Gblame<CR>
+noremap Zz <c-w>_ \| <c-w>\|
+noremap Zo <c-w>=
 nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>tt :TagbarToggle<CR>
 nmap <leader>rr :RunReek<CR>
@@ -43,14 +48,16 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers=['eslint']
+let g:syntastic_javascript_checkers=['standard', 'eslint']
 let g:syntastic_javascript_eslint_exe = 'yarn lint --'
 
 " Ruby
 let g:syntastic_ruby_checkers=['rubocop']
 
+" php
+let g:syntastic_php_checkers=[]
 
 " Prettier
 let g:prettier#config#print_width = 120
@@ -63,8 +70,10 @@ let g:prettier#config#single_quote = 'true'
 let g:prettier#config#semi = 'true'
 let g:prettier#quickfix_enabled = 0
 let g:prettier#autoformat = 0
-autocmd BufWritePre *.jsx,*.mjs Prettier
+autocmd bufwritepost *.js silent !standard --fix %
+set autoread
 
+let g:ale_emit_conflict_warnings = 0
 colorscheme PaperColor
 
 " Source the vimrc file after saving it
