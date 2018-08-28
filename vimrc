@@ -10,6 +10,8 @@ set t_Co=256
 set termguicolors
 set foldmethod=syntax
 set foldlevelstart=1000
+set autoread
+" au CursorHold * checktime
 
 syntax on
 filetype plugin indent on
@@ -40,6 +42,7 @@ nmap <leader>rr :RunReek<CR>
 nmap <leader>rc :RuboCop<CR>
 nmap <leader>rcf :RuboCop -a<CR>
 nnoremap <LEADER>gp :Prettier<CR>
+nmap <LEADER>j :%!python -m json.tool<CR>
 
 " Syntastic
 let g:jsx_ext_required = 0 " Allow JSX in normal JS files
@@ -50,7 +53,7 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers=['standard', 'eslint']
+let g:syntastic_javascript_checkers=['prettier', 'eslint']
 let g:syntastic_javascript_eslint_exe = 'yarn lint --'
 
 " Ruby
@@ -70,8 +73,9 @@ let g:prettier#config#single_quote = 'true'
 let g:prettier#config#semi = 'true'
 let g:prettier#quickfix_enabled = 0
 let g:prettier#autoformat = 0
-autocmd bufwritepost *.js silent !standard --fix %
-set autoread
+autocmd bufwritepost *.js silent !eslint --fix %
+autocmd bufwritepost *.js silent !prettier --write %
+autocmd bufwritepost *.js redraw!
 
 let g:ale_emit_conflict_warnings = 0
 colorscheme PaperColor
