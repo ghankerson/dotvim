@@ -104,5 +104,5 @@
 	path = bundle/ale
 	url = git@github.com:w0rp/ale.git
 [submodule "vim-polyglot"]
-	path = vim-polyglot
+	path = bundle/vim-polyglot
 	url = git@github.com:sheerun/vim-polyglot.git

@@ -42,6 +42,8 @@ nmap <leader>tt :TagbarToggle<CR>
 nmap <leader>rr :RunReek<CR>
 nnoremap <LEADER>gp :Prettier<CR>
 nmap <LEADER>j :%!python -m json.tool<CR>
+nmap <silent> [c <Plug>(ale_previous_wrap)
+nmap <silent> ]c <Plug>(ale_next_wrap)
 
 " Prettier
 let g:prettier#config#print_width = 120
@@ -54,9 +56,17 @@ let g:prettier#config#single_quote = 'true'
 let g:prettier#config#semi = 'true'
 let g:prettier#quickfix_enabled = 0
 let g:prettier#autoformat = 0
-autocmd bufwritepost *.js silent !eslint --fix %
-autocmd bufwritepost *.tsx silent !npx tslint %
-autocmd bufwritepost *.js silent !prettier --write %
+
+" Ale
+let g:ale_sign_error = '❌'
+let g:ale_sign_warning = '⚠️'
+let g:ale_fixers['javascript'] = ['eslint']
+" Fix files automatically on save
+let g:ale_fix_on_save = 1
+
+" autocmd bufwritepost *.js silent !eslint --fix %
+" autocmd bufwritepost *.tsx silent !npx tslint %
+" autocmd bufwritepost *.js silent !prettier --write %
 " autocmd bufwritepost *.tsx silent !prettier --write %
 autocmd bufwritepost *.js redraw!
 autocmd bufwritepost *.tsx redraw!
