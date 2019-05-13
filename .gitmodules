@@ -1,36 +1,12 @@
 [submodule "bundle/pathogen"]
 	path = bundle/pathogen
 	url = git@github.com:tpope/vim-pathogen.git
-[submodule "bundle/ack"]
-	path = bundle/ack
-	url = git@github.com:mileszs/ack.vim.git
-[submodule "bundle/javascript-libraries-syntax"]
-	path = bundle/javascript-libraries-syntax
-	url = git@github.com:othree/javascript-libraries-syntax.vim.git
-[submodule "bundle/nerdcommenter"]
-	path = bundle/nerdcommenter
-	url = git@github.com:vim-scripts/The-NERD-Commenter.git
 [submodule "bundle/nerdtree"]
 	path = bundle/nerdtree
 	url = git@github.com:scrooloose/nerdtree.git
 [submodule "bundle/promptline"]
 	path = bundle/promptline
 	url = git@github.com:edkolev/promptline.vim.git
-[submodule "bundle/supertab"]
-	path = bundle/supertab
-	url = git@github.com:ervandew/supertab.git
-[submodule "bundle/tagbar"]
-	path = bundle/tagbar
-	url = git@github.com:majutsushi/tagbar.git
-[submodule "bundle/tern"]
-	path = bundle/tern
-	url = git@github.com:ternjs/tern_for_vim.git
-[submodule "bundle/tlib"]
-	path = bundle/tlib
-	url = https://github.com/tomtom/tlib_vim
-[submodule "bundle/addon-mw-utils"]
-	path = bundle/addon-mw-utils
-	url = git@github.com:MarcWeber/vim-addon-mw-utils.git
 [submodule "bundle/airline"]
 	path = bundle/airline
 	url = git@github.com:vim-airline/vim-airline.git
@@ -46,60 +22,24 @@
 [submodule "bundle/gitgutter"]
 	path = bundle/gitgutter
 	url = git@github.com:airblade/vim-gitgutter.git
-[submodule "bundle/javascript"]
-	path = bundle/javascript
-	url = git@github.com:pangloss/vim-javascript.git
-[submodule "bundle/json"]
-	path = bundle/json
-	url = git@github.com:elzr/vim-json.git
-[submodule "bundle/jsx"]
-	path = bundle/jsx
-	url = git@github.com:mxw/vim-jsx.git
 [submodule "bundle/multiple-cursors"]
 	path = bundle/multiple-cursors
 	url = git@github.com:terryma/vim-multiple-cursors.git
-[submodule "bundle/rails"]
-	path = bundle/rails
-	url = git@github.com:tpope/vim-rails.git
 [submodule "bundle/snipmate"]
 	path = bundle/snipmate
 	url = git@github.com:garbas/vim-snipmate.git
-[submodule "bundle/surround"]
-	path = bundle/surround
-	url = git@github.com:tpope/vim-surround.git
 [submodule "bundle/trailing-whitespace"]
 	path = bundle/trailing-whitespace
 	url = git@github.com:bronson/vim-trailing-whitespace.git
-[submodule "bundle/unimpaired"]
-	path = bundle/unimpaired
-	url = git@github.com:tpope/vim-unimpaired.git
 [submodule "bundle/vroom"]
 	path = bundle/vroom
 	url = git@github.com:skalnik/vim-vroom.git
 [submodule "bundle/rubocop"]
 	path = bundle/rubocop
 	url = git@github.com:ngmy/vim-rubocop.git
-[submodule "bundle/slim"]
-	path = bundle/slim
-	url = https://github.com/slim-template/vim-slim
-[submodule "bundle/endwise"]
-	path = bundle/endwise
-	url = git@github.com:tpope/vim-endwise.git
-[submodule "bundle/reek"]
-	path = bundle/reek
-	url = git@github.com:rainerborene/vim-reek.git
-[submodule "bundle/vitality"]
-	path = bundle/vitality
-	url = git@github.com:sjl/vitality.vim.git
 [submodule "bundle/vdebug"]
 	path = bundle/vdebug
 	url = git@github.com:joonty/vdebug.git
-[submodule "bundle/neoformat"]
-	path = bundle/neoformat
-	url = https://github.com/sbdchd/neoformat.git
-[submodule "bundle/vim-prettier"]
-	path = bundle/vim-prettier
-	url = https://github.com/prettier/vim-prettier.git
 [submodule "bundle/ale"]
 	path = bundle/ale
 	url = git@github.com:w0rp/ale.git
