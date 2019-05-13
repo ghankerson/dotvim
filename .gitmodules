@@ -19,9 +19,6 @@
 [submodule "bundle/supertab"]
 	path = bundle/supertab
 	url = git@github.com:ervandew/supertab.git
-[submodule "bundle/syntastic"]
-	path = bundle/syntastic
-	url = git@github.com:vim-syntastic/syntastic.git
 [submodule "bundle/tagbar"]
 	path = bundle/tagbar
 	url = git@github.com:majutsushi/tagbar.git
@@ -106,3 +103,6 @@
 [submodule "bundle/ale"]
 	path = bundle/ale
 	url = git@github.com:w0rp/ale.git
+[submodule "vim-polyglot"]
+	path = vim-polyglot
+	url = git@github.com:sheerun/vim-polyglot.git

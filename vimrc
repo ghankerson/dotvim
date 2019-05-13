@@ -1,3 +1,4 @@
+set nocp
 execute pathogen#infect()
 
 set number
@@ -39,28 +40,8 @@ noremap Zo <c-w>=
 nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <leader>tt :TagbarToggle<CR>
 nmap <leader>rr :RunReek<CR>
-nmap <leader>rc :RuboCop<CR>
-nmap <leader>rcf :RuboCop -a<CR>
 nnoremap <LEADER>gp :Prettier<CR>
 nmap <LEADER>j :%!python -m json.tool<CR>
-
-" Syntastic
-let g:jsx_ext_required = 0 " Allow JSX in normal JS files
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers=['prettier', 'eslint']
-let g:syntastic_javascript_eslint_exe = 'yarn lint --'
-
-" Ruby
-let g:syntastic_ruby_checkers=['rubocop']
-
-" php
-let g:syntastic_php_checkers=[]
 
 " Prettier
 let g:prettier#config#print_width = 120
@@ -74,8 +55,11 @@ let g:prettier#config#semi = 'true'
 let g:prettier#quickfix_enabled = 0
 let g:prettier#autoformat = 0
 autocmd bufwritepost *.js silent !eslint --fix %
+autocmd bufwritepost *.tsx silent !npx tslint %
 autocmd bufwritepost *.js silent !prettier --write %
+" autocmd bufwritepost *.tsx silent !prettier --write %
 autocmd bufwritepost *.js redraw!
+autocmd bufwritepost *.tsx redraw!
 
 let g:ale_emit_conflict_warnings = 0
 colorscheme PaperColor
@@ -90,10 +74,4 @@ if !exists('g:airline_symbols')
 endif
 
 " yank to clipboard
-if has("clipboard")
-  set clipboard=unnamed " copy to the system clipboard
-
-	if has("unnamedplus") " X11 support
-	set clipboard+=unnamedplus
-	endif
-endif
+set clipboard=unnamed " copy to the system clipboard
