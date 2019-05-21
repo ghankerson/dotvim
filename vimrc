@@ -48,7 +48,7 @@ autocmd bufwritepost *.js redraw!
 autocmd bufwritepost *.tsx redraw!
 
 let g:ale_emit_conflict_warnings = 0
-colorscheme PaperColor
+colorscheme deepspace
 
 " Source the vimrc file after saving it
 if has("autocmd")
