@@ -2,7 +2,7 @@ set nocp
 
 set number
 set mouse=n
-set ttymouse=xterm2
+"set ttymouse=xterm2
 set nowrap
 set encoding=utf-8
 set t_Co=256
@@ -10,6 +10,7 @@ set termguicolors
 set foldmethod=syntax
 set foldlevelstart=1000
 set autoread
+set splitbelow
 
 syntax on
 filetype plugin indent on
@@ -37,18 +38,22 @@ noremap Zo <c-w>=
 nmap <leader>v :tabedit $MYVIMRC<CR>
 nmap <LEADER>j :%!python -m json.tool<CR>
 
+let g:python_host_prog = "/usr/local/bin/python2"
+let g:python3_host_prog = "/usr/local/bin/python3"
+
 " Ale
-let g:ale_sign_error = '❌'
+let g:ale_javascript_eslint_executable = './node_modules/.bin/eslint'
+let g:ale_sign_error = '*'
 let g:ale_sign_warning = '⚠️'
-let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
-" Fix files automatically on save
+let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
 let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
+let g:ale_echo_msg_format = '%linter% says %s'
 
 autocmd bufwritepost *.js redraw!
 autocmd bufwritepost *.tsx redraw!
 
 let g:ale_emit_conflict_warnings = 0
-colorscheme deepspace
 
 " Source the vimrc file after saving it
 if has("autocmd")
@@ -72,6 +77,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-fugitive'
 Plug 'skalnik/vim-vroom'
 Plug 'sheerun/vim-polyglot'
+Plug 'ajh17/VimCompletesMe'
 
 
 call plug#end()
@@ -86,3 +92,4 @@ augroup ProjectDrawer
   autocmd VimEnter * :Vexplore
 augroup END
 
+colorscheme PaperColor
