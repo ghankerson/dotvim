@@ -1,18 +1,16 @@
 set nocp
-execute pathogen#infect()
 
 set number
 set mouse=n
-set ttymouse=xterm2
+"set ttymouse=xterm2
 set nowrap
 set encoding=utf-8
-set guifont=/Users/ghankerson/Library/Fonts/Anonymice\ Powerline.ttf "make sure to escape the spaces in the name properly
 set t_Co=256
 set termguicolors
 set foldmethod=syntax
 set foldlevelstart=1000
 set autoread
-" au CursorHold * checktime
+set splitbelow
 
 syntax on
 filetype plugin indent on
@@ -38,41 +36,24 @@ nnoremap <LEADER>gb :Gblame<CR>
 noremap Zz <c-w>_ \| <c-w>\|
 noremap Zo <c-w>=
 nmap <leader>v :tabedit $MYVIMRC<CR>
-nmap <leader>tt :TagbarToggle<CR>
-nmap <leader>rr :RunReek<CR>
-nnoremap <LEADER>gp :Prettier<CR>
 nmap <LEADER>j :%!python -m json.tool<CR>
-nmap <silent> [c <Plug>(ale_previous_wrap)
-nmap <silent> ]c <Plug>(ale_next_wrap)
 
-" Prettier
-let g:prettier#config#print_width = 120
-let g:prettier#config#trailing_comma = 'none'
-let g:prettier#config#tab_width = 2
-let g:prettier#config#use_tabs = 'false'
-let g:prettier#config#parser = 'flow'
-let g:prettier#config#bracket_spacing = 'true'
-let g:prettier#config#single_quote = 'true'
-let g:prettier#config#semi = 'true'
-let g:prettier#quickfix_enabled = 0
-let g:prettier#autoformat = 0
+let g:python_host_prog = "/usr/local/bin/python2"
+let g:python3_host_prog = "/usr/local/bin/python3"
 
 " Ale
-let g:ale_sign_error = '❌'
+let g:ale_javascript_eslint_executable = './node_modules/.bin/eslint'
+let g:ale_sign_error = '*'
 let g:ale_sign_warning = '⚠️'
-let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
-" Fix files automatically on save
+let b:ale_fixers = {'javascript': ['prettier', 'eslint']}
 let g:ale_fix_on_save = 1
+let g:ale_completion_enabled = 1
+let g:ale_echo_msg_format = '%linter% says %s'
 
-" autocmd bufwritepost *.js silent !eslint --fix %
-" autocmd bufwritepost *.tsx silent !npx tslint %
-" autocmd bufwritepost *.js silent !prettier --write %
-" autocmd bufwritepost *.tsx silent !prettier --write %
 autocmd bufwritepost *.js redraw!
 autocmd bufwritepost *.tsx redraw!
 
 let g:ale_emit_conflict_warnings = 0
-colorscheme PaperColor
 
 " Source the vimrc file after saving it
 if has("autocmd")
@@ -85,3 +66,30 @@ endif
 
 " yank to clipboard
 set clipboard=unnamed " copy to the system clipboard
+
+call plug#begin('~/.vim/plugged')
+
+Plug 'tpope/vim-sensible'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'w0rp/ale'
+Plug 'edkolev/promptline.vim'
+Plug 'flazz/vim-colorschemes'
+Plug 'tpope/vim-fugitive'
+Plug 'skalnik/vim-vroom'
+Plug 'sheerun/vim-polyglot'
+Plug 'ajh17/VimCompletesMe'
+
+
+call plug#end()
+
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+augroup ProjectDrawer
+  autocmd!
+  autocmd VimEnter * :Vexplore
+augroup END
+
+colorscheme PaperColor
